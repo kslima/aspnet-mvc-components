@@ -1,0 +1,30 @@
+@model FundosComponents.Components.ViewComponents.SearchInput.SearchInputViewModel
+
+<div class="search-input" data-id="@Model.Id">
+    <div class="search-input__container">
+
+        <input type="text"
+               id="@Model.Id"
+               class="search-input__field"
+               placeholder="@Model.Placeholder"
+               autocomplete="off"
+               data-search-url="@Model.SearchUrl"
+               data-min-chars="@Model.MinChars"/>
+
+        <label for="@Model.Id" class="search-input__label">
+            @Model.Label
+        </label>
+
+        <span class="search-input__action">
+            <i class="icon-search">🔍</i>
+        </span>
+    </div>
+    
+    <p class="search-input__helper">Mensagem de erro ou texto auxiliar</p>
+    <!-- Dropdown -->
+    <ul class="search-input__dropdown"></ul>
+</div>
+
+@section Scripts {
+    <script src="~/js/components/search-input.js"></script>
+}

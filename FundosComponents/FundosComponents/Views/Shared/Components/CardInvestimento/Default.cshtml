@@ -1,0 +1,38 @@
+@model FundoViewModel
+
+<section class="c-invest-card">
+    <details class="c-invest-card__wrapper">
+        <summary class="c-invest-card__header">
+            <div class="c-invest-card__info">
+0                <h3 class="c-invest-card__title">@Model.Nome</h3>
+                <div class="c-invest-card__meta">
+                    <span class="c-tag c-tag--neutral">@Model.Tipo</span>
+                    <ui-risk-indicator level="@Model.NivelRisco" />
+                </div>
+            </div>
+
+            <div class="c-invest-card__stats">
+                <div class="c-invest-card__data">
+                    <span class="c-invest-card__label">Aporte único mínimo:</span>
+                    <span class="c-invest-card__value">R$ @Model.AporteMinimo.ToString("N2")</span>
+                </div>
+                
+                <div class="c-invest-card__rentability">
+                    <ui-rentability period="Mês" value="@Model.RentabilidadeMes" />
+                    <ui-rentability period="Ano" value="@Model.RentabilidadeAno" />
+                </div>
+
+                <div class="c-invest-card__actions">
+                    <button class="c-button c-button--primary">Contratar</button>
+                    <span class="c-invest-card__icon-arrow"></span>
+                </div>
+            </div>
+        </summary>
+
+        <div class="c-invest-card__content">
+            <div class="c-invest-card__divider"></div>
+            <div class="c-invest-card__details-grid">
+            </div>
+        </div>
+    </details>
+</section>

@@ -1,0 +1,16 @@
+@model List<ItemAbaViewModel>
+
+<nav class="c-abas-previdencia">
+    <ul class="c-abas-previdencia__lista">
+        @foreach (var aba in Model)
+        {
+            <li class="c-abas-previdencia__item">
+                <a asp-action="@aba.Action"
+                   asp-controller="@aba.Controller"
+                   class="c-abas-previdencia__link @(aba.EstaAtiva ? "c-abas-previdencia__link--ativo" : "")">
+                    @aba.Titulo
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

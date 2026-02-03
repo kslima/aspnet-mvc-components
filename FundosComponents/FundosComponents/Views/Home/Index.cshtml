@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FundoViewModel>
+
+@{
+    string abaAtual = ViewBag.AbaAtiva;
+}
+
+<div class="container mt-4">
+
+    <vc:abas-navegacao aba-ativa="@abaAtual"/>
+    <div class="conteudo-dinamico" style="margin-top: var(--spacing-xxsmall);">
+        @if (abaAtual == "Fundos")
+        {
+            <h2>Meus Investimentos</h2>
+            <p>Explore as opções de fundos disponíveis.</p>
+
+            <div class="invest-list">
+                @foreach (var item in Model)
+                {
+                    <vc:card-investimento fundo="@item"/>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="c-alerta-vazio">
+                <h3>@abaAtual</h3>
+                <p>Nenhum dado disponível para esta seção no momento.</p>
+            </div>
+        }
+    </div>
+
+
+</div>

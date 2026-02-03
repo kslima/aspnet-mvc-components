@@ -1,0 +1,174 @@
+/* ==========================================================================
+   COMPONENTES ATÔMICOS (Reutilizáveis)
+   ========================================================================== */
+
+/* Badges (Pills) */
+.c-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+}
+.c-badge--neutral { background-color: var(--color-neutral-gray); color: var(--color-neutral-low); }
+.c-badge--positive { background-color: var(--color-feedback-success); color: var(--color-brand-secondary); }
+.c-badge--negative { background-color: var(--color-feedback-error); color: var(--color-status-neg); }
+
+/* Botões */
+.c-button {
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: filter 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.c-button--primary {
+    background-color: var(--color-brand-secondary);
+    color: var(--color-brand-primary);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+}
+.c-button:hover { filter: brightness(1.2); }
+
+/* Indicador de Risco */
+.c-risk-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.c-risk-indicator__label {
+    font-size: 11px;
+    margin-right: 4px;
+    color: var(--color-neutral-low);
+}
+.c-risk-indicator__bar {
+    width: 3px;
+    height: 12px;
+    border-radius: 1px;
+}
+.c-risk-indicator__bar--active { background-color: #555; }
+.c-risk-indicator__bar--inactive { background-color: #ddd; }
+
+/* ==========================================================================
+   BLOCO: INVEST CARD (Componente Principal)
+   ========================================================================== */
+
+.c-invest-card {
+    border: 1px solid var(--color-neutral-medium);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    background-color: var(--color-neutral-high);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+/* Header (Summary) */
+.c-invest-card__header {
+    display: flex;
+    flex-direction: column; /* Empilha as linhas de info */
+    padding: var(--space-md);
+    cursor: pointer;
+    list-style: none; /* Esconde seta padrão no Firefox */
+    outline: none;
+}
+
+/* Remove seta padrão no Chrome/Safari */
+.c-invest-card__header::-webkit-details-marker { display: none; }
+
+/* Linhas do Cabeçalho */
+.c-invest-card__header-top,
+.c-invest-card__stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.c-invest-card__header-top {
+    margin-bottom: var(--space-md);
+}
+
+.c-invest-card__title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-neutral-low);
+    margin: 0;
+}
+
+.c-invest-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* Grupos de Dados */
+.c-invest-card__data {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-invest-card__label {
+    font-size: 11px;
+    color: var(--color-neutral-low);
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+
+.c-invest-card__value {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.c-invest-card__rentability {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.c-invest-card__actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Conteúdo Expandível (Body) */
+.c-invest-card__content {
+    padding: 0 var(--space-md) var(--space-md) var(--space-md);
+}
+
+.c-invest-card__divider {
+    height: 1px;
+    background-color: var(--color-neutral-medium);
+    margin-bottom: var(--space-md);
+}
+
+.c-invest-card__details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    font-size: 13px;
+    color: var(--color-neutral-low);
+}
+
+/* Ícone de Seta Animado */
+.c-invest-card__icon-arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--color-brand-primary);
+    border-bottom: 2px solid var(--color-brand-primary);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-left: var(--space-lg);
+}
+
+/* Estado Aberto */
+.c-invest-card__wrapper[open] .c-invest-card__icon-arrow {
+    transform: rotate(-135deg);
+}
+
+.c-invest-card__wrapper[open] .c-invest-card__header {
+    background-color: var(--color-neutral-gray);
+}

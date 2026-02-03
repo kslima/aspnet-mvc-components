@@ -1,0 +1,75 @@
+.search-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: inherit;
+}
+
+.search-input__container {
+    position: relative;
+    height: 48px;                  
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--brad-color-neutral-30);
+    border-radius: var(--brad-border-radius-xxs);
+    transition: border-color .2s ease;
+    background-color: var(--brad-color-neutral-05);
+    padding: 4px;
+}
+
+.search-input__container:focus-within {
+    border-bottom-color: var(--color-primary-500);
+}
+
+.search-input__field {
+    flex: 1;
+    height: 100%;
+    padding: 4px 12px 4px 12px;       
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input__label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--brad-color-neutral-100);
+    pointer-events: none;
+    transition: all .2s ease;
+    padding: 4px;
+    min-height: 24px;
+    line-height: var(--brad-line-height-md);
+}
+
+.search-input__field:focus + .search-input__label,
+.search-input__field:not(:placeholder-shown) + .search-input__label {
+    top: 0;
+    left: 12px;
+    transform: none;
+    font-size: var(--brad-font-size-xs);
+    color: var(--color-primary-500);
+    line-height: var(--brad-line-height-sm);
+}
+
+.search-input__action {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 8px;
+    border-left: 1px solid var(--color-neutral-200); /* pipe */
+    height: 60%; /* estética para ficar menor que o input */
+    display: flex;
+    align-items: center;
+    color: var(--color-neutral-500);
+}
+
+.search-input__helper {
+    margin-top: 4px;   /* spacing do Figma */
+    font-size: 12px;
+    color: var(--color-neutral-500);
+}

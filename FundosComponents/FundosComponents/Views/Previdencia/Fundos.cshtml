@@ -1,0 +1,20 @@
+
+@using FundosComponents.Components.ViewComponents.SearchInput
+@model List<FundoViewModel>
+
+<vc:abas-navegacao aba-ativa="Fundos"/>
+
+<h2>Meus Investimentos</h2>
+
+<vc:search-input model="@(new SearchInputViewModel
+                        {
+                            Label = "Buscar por nome",
+                            SearchUrl = Url.Action("Buscar", "Previdencia")
+                        })"/>
+
+@* <div class="invest-list"> *@
+@*     @foreach (var item in Model) *@
+@*     { *@
+@*         <vc:card-investimento fundo="@item"/> *@
+@*     } *@
+@* </div> *@
