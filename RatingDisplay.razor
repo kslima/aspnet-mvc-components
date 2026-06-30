@@ -1,0 +1,64 @@
+﻿@using AntDesign
+@using Pms.Components.Pages.Emissores.Models
+
+@if (Ratings?.Any() != true)
+{
+    <span class="agr-rating-list__empty">
+        Nenhum rating
+    </span>
+}
+else
+{
+    <div class="agr-rating-list">
+        @foreach (var rating in Ratings)
+        {
+            <div class="agr-rating-list__row">
+                <div class="agr-rating-list__label">
+                    @rating.Fonte.ToUpperInvariant()
+                </div>
+
+                <div class="agr-rating-list__content">
+                    <span class="agr-rating-list__value">
+                        @rating.Valor
+                    </span>
+
+                    @if (!string.IsNullOrWhiteSpace(rating.Descricao))
+                    {
+                        <span class="agr-rating-list__description">
+                            @rating.Descricao
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+@code {
+
+    [Parameter]
+    public IReadOnlyCollection<RatingDto> Ratings { get; set; } = [];
+
+    private BadgeStatus GetStatus(int valor) => valor switch
+    {
+        1 => BadgeStatus.Success,
+        2 => BadgeStatus.Processing,
+        3 => BadgeStatus.Warning,
+        4 => BadgeStatus.Error,
+        _ => BadgeStatus.Default
+    };
+
+    private string GetColor(int valor) => valor switch
+    {
+        1 => "green",
+        2 => "blue",
+        3 => "orange",
+        4 => "red",
+        _ => "default"
+    };
+
+    private Dictionary<string, int> column = new Dictionary<string, int> {
+            { "Xxl", 1 }
+        };
+}

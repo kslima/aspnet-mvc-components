@@ -1,0 +1,39 @@
+﻿.row-even {
+    background-color: var(--neutral-layer-1);
+}
+
+.row-odd {
+    background-color: var(--neutral-layer-2);
+}
+
+@keyframes blink-animation {
+    0% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #FFCC80;
+    }
+    /* Vermelho bem claro para cancelado, ou mantenha o #ffeeba amarelo */
+    100% {
+        background-color: transparent;
+    }
+}
+
+.nova-operacao {
+    /* Nome da animação, duração, timing, e INFINITE para não parar */
+    animation: blink-animation 1.5s ease-in-out infinite;
+}
+
+/* Remove a borda das células dentro de uma linha com tratamento manual */
+.manual-treatment,
+.manual-treatment:hover {
+    --neutral-fill-rest: transparent; /* Garante que o fundo padrão não interfira */
+    background: #FFF9C4 !important; /* Aplica a cor de fundo */
+    border-left: 4px solid #FBC02D; /* A borda lateral para destaque */
+}
+
+    /* Força as células dentro da linha a não terem bordas extras */
+    .manual-treatment fluent-data-grid-cell {
+        border: none !important;
+    }
